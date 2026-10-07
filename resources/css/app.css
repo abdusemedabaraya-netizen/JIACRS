@@ -1,0 +1,1366 @@
+/* =========================================================
+   JIACRS PUBLIC LANDING PAGE
+   Loaded after AdminLTE 4 / Bootstrap 5, so these rules win.
+   ========================================================= */
+
+/* ---------- Brand colours ---------- */
+:root {
+    --jiacrs-nav:    #0078d4;   /* navbar */
+    --jiacrs-navy:   #073f70;   /* headings, primary buttons */
+    --jiacrs-blue:   #0b5a91;
+    --jiacrs-green:  #0f8a55;
+    --jiacrs-teal:   #12a58f;
+    --jiacrs-border: #d6e6f1;
+    --jiacrs-soft:   #eef6fb;
+    --jiacrs-text:   #4a6a82;
+
+    /* Tell Bootstrap / AdminLTE about the brand colours */
+    --bs-primary: #073f70;
+    --bs-primary-rgb: 7, 63, 112;
+    --bs-success: #0f8a55;
+    --bs-success-rgb: 15, 138, 85;
+    --bs-link-color: #0b5a91;
+    --bs-link-color-rgb: 11, 90, 145;
+    --bs-link-hover-color: #073f70;
+    --bs-link-hover-color-rgb: 7, 63, 112;
+}
+
+.btn-primary {
+    --bs-btn-bg: #075486;
+    --bs-btn-border-color: #075486;
+    --bs-btn-hover-bg: #063f65;
+    --bs-btn-hover-border-color: #063f65;
+    --bs-btn-active-bg: #063f65;
+    --bs-btn-active-border-color: #063f65;
+    --bs-btn-disabled-bg: #075486;
+    --bs-btn-disabled-border-color: #075486;
+}
+
+.btn-success {
+    --bs-btn-bg: #10c8ae;
+    --bs-btn-border-color: #10c8ae;
+    --bs-btn-hover-bg: #0da993;
+    --bs-btn-hover-border-color: #0da993;
+    --bs-btn-active-bg: #0da993;
+    --bs-btn-active-border-color: #0da993;
+    --bs-btn-color: #ffffff;
+    --bs-btn-hover-color: #ffffff;
+}
+
+/* ---------- Base ---------- */
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+.jiacrs-body {
+    font-size: 15px;
+    color: #1f2d3a;
+    background: #ffffff;
+}
+
+/* so anchor links are not hidden under the sticky navbar */
+section[id], div[id="track"] { scroll-margin-top: 80px; }
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.jiacrs-navbar {
+    background: var(--jiacrs-nav);
+    min-height: 70px;
+    padding: 7px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .12);
+}
+
+.jiacrs-brand { display: flex; align-items: center; text-decoration: none; }
+
+.jiacrs-logo {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    margin-right: 12px;
+}
+
+.jiacrs-brand-text { line-height: 1.15; }
+
+.jiacrs-university-name {
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: .2px;
+}
+
+.jiacrs-system-name {
+    color: rgba(255, 255, 255, .9);
+    font-size: 11px;
+    font-weight: 600;
+    margin-top: 3px;
+}
+
+.jiacrs-navbar .nav-link {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 25px 13px;
+    position: relative;
+}
+
+.jiacrs-navbar .nav-link:hover { color: #cfe6f8; }
+
+.jiacrs-navbar .nav-link.active::after {
+    content: "";
+    position: absolute;
+    left: 13px;
+    right: 13px;
+    bottom: 10px;
+    height: 2px;
+    background: #ffffff;
+}
+
+.jiacrs-track-btn {
+    background: #ffffff;
+    color: var(--jiacrs-nav) !important;
+    border: 0;
+    border-radius: 9px;
+    padding: 9px 20px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.jiacrs-track-btn:hover { background: #e6f2fb; }
+
+
+/* =========================================================
+   HERO  (photo is set inline in hero.blade.php)
+   ========================================================= */
+
+.jiacrs-hero {
+    position: relative;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-position: center 55%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.jiacrs-hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(90deg,
+        rgba(0, 52, 91, .90) 0%,
+        rgba(0, 61, 105, .68) 38%,
+        rgba(0, 61, 105, .25) 70%,
+        rgba(0, 61, 105, .05) 100%);
+}
+
+.jiacrs-hero .container {
+    position: relative;
+    z-index: 2;
+    padding-top: 45px;
+    padding-bottom: 45px;
+}
+
+.jiacrs-hero-kicker {
+    color: #d8edf8;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.1px;
+    margin-bottom: 10px;
+}
+
+.jiacrs-hero-title {
+    color: #ffffff;
+    font-size: 40px;
+    line-height: 1.12;
+    font-weight: 800;
+    margin-bottom: 14px;
+}
+
+.jiacrs-hero-title span { display: block; color: #1fe0c4; }
+
+.jiacrs-hero-description {
+    color: rgba(255, 255, 255, .95);
+    font-size: 16px;
+    line-height: 1.55;
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+
+.jiacrs-hero-features {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    row-gap: 12px;
+    margin-bottom: 24px;
+}
+
+.jiacrs-hero-feature { display: flex; align-items: center; gap: 10px; }
+.jiacrs-hero-feature > i { color: #ffffff; font-size: 24px; }
+.jiacrs-hero-feature strong { display: block; color: #fff; font-size: 13px; font-weight: 700; }
+.jiacrs-hero-feature small  { display: block; color: rgba(255,255,255,.85); font-size: 12px; margin-top: 1px; }
+
+.jiacrs-feature-divider {
+    width: 1px;
+    height: 32px;
+    background: rgba(255, 255, 255, .3);
+    margin: 0 20px;
+}
+
+.jiacrs-hero-buttons { display: flex; flex-wrap: wrap; gap: 12px; }
+.jiacrs-hero-buttons .btn { font-size: 15px; font-weight: 700; border-radius: 8px; }
+
+
+/* =========================================================
+   SHARED SECTION STYLES
+   ========================================================= */
+
+.jiacrs-section { padding: 64px 0; background: #ffffff; }
+.jiacrs-section-alt { background: #f3f9fd; }
+
+.jiacrs-section-title {
+    color: var(--jiacrs-navy);
+    font-size: 28px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.jiacrs-section-subtitle {
+    color: var(--jiacrs-text);
+    font-size: 16px;
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 36px;
+}
+
+.jiacrs-heading-left { color: var(--jiacrs-navy); font-size: 28px; font-weight: 800; margin-bottom: 6px; }
+.jiacrs-sub-left { color: var(--jiacrs-text); margin-bottom: 22px; }
+
+
+/* =========================================================
+   STATS STRIP  (AdminLTE info-box)
+   ========================================================= */
+
+.jiacrs-stats { background: var(--jiacrs-soft); padding: 28px 0; }
+
+.jiacrs-stats .info-box { border-radius: 10px; border: 1px solid var(--jiacrs-border); }
+.jiacrs-stats .info-box-icon { border-radius: 10px 0 0 10px; font-size: 26px; background: var(--jiacrs-navy) !important; }
+.jiacrs-stats .info-box-text { color: var(--jiacrs-navy); font-size: 16px; }
+.jiacrs-stats .info-box-number { color: var(--jiacrs-text); font-size: 14px; }
+
+
+/* =========================================================
+   HOW IT WORKS
+   ========================================================= */
+
+.jiacrs-step-col { position: relative; }
+
+.jiacrs-step {
+    border: 1px solid var(--jiacrs-border);
+    border-radius: 10px;
+}
+
+.jiacrs-step .card-body { padding: 26px 18px; }
+
+.jiacrs-step-icon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--jiacrs-soft);
+    color: var(--jiacrs-blue);
+    font-size: 30px;
+    margin-bottom: 14px;
+}
+
+.jiacrs-step-badge {
+    position: absolute;
+    top: -4px;
+    right: -6px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--jiacrs-navy);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #fff;
+}
+
+.jiacrs-step-title { color: var(--jiacrs-navy); font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+.jiacrs-step-text  { color: var(--jiacrs-text); font-size: 14px; margin: 0; }
+
+.jiacrs-step-arrow {
+    position: absolute;
+    top: 50%;
+    right: -6px;
+    transform: translate(50%, -50%);
+    color: var(--jiacrs-blue);
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   CATEGORIES
+   ========================================================= */
+
+.jiacrs-category {
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    border: 1px solid var(--jiacrs-border);
+    border-radius: 10px;
+    text-decoration: none;
+    transition: box-shadow .15s ease, border-color .15s ease;
+}
+
+.jiacrs-category:hover {
+    border-color: var(--jiacrs-blue);
+    box-shadow: 0 6px 16px rgba(7, 63, 112, .14) !important;
+}
+
+.jiacrs-category-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.jiacrs-category-icon.is-blue  { background: var(--jiacrs-navy); }
+.jiacrs-category-icon.is-green { background: var(--jiacrs-green); }
+
+.jiacrs-category-name { flex-grow: 1; color: var(--jiacrs-navy); font-size: 14px; font-weight: 700; }
+.jiacrs-category-arrow { color: #6b8397; }
+.jiacrs-category:hover .jiacrs-category-arrow { color: var(--jiacrs-navy); }
+
+
+/* =========================================================
+   WHY USE JIACRS
+   ========================================================= */
+
+.jiacrs-why { border: 1px solid var(--jiacrs-border); border-radius: 10px; }
+.jiacrs-why .card-body { padding: 18px 16px; }
+
+.jiacrs-why-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--jiacrs-navy);
+    color: #fff;
+    font-size: 19px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.jiacrs-why-title { color: var(--jiacrs-navy); font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+.jiacrs-why-text  { color: var(--jiacrs-text); font-size: 13px; margin: 0; }
+
+
+/* =========================================================
+   TRACK YOUR REPORT
+   ========================================================= */
+
+.jiacrs-track { border-radius: 10px; background: #f3f9fd; }
+.jiacrs-track .card-body { padding: 26px; }
+.jiacrs-track-title { color: var(--jiacrs-navy); font-size: 21px; font-weight: 800; margin-bottom: 6px; }
+.jiacrs-track-text { color: var(--jiacrs-text); font-size: 14px; margin-bottom: 18px; }
+.jiacrs-track-note { color: var(--jiacrs-text); font-size: 13px; margin: 14px 0 0; }
+
+
+/* =========================================================
+   CASE LIFECYCLE
+   ========================================================= */
+
+.jiacrs-lifecycle {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+}
+
+.jiacrs-stage {
+    position: relative;
+    text-align: center;
+    padding: 0 4px;
+}
+
+/* connecting line between stages */
+.jiacrs-stage:not(:first-child)::before {
+    content: "";
+    position: absolute;
+    top: 25px;
+    right: 50%;
+    width: 100%;
+    height: 3px;
+    background: #b9d6ee;
+    z-index: 0;
+}
+
+.jiacrs-stage-icon {
+    position: relative;
+    z-index: 1;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 4px #f3f9fd;
+}
+
+.jiacrs-stage-icon.is-blue  { background: var(--jiacrs-nav); }
+.jiacrs-stage-icon.is-teal  { background: var(--jiacrs-teal); }
+.jiacrs-stage-icon.is-green { background: var(--jiacrs-green); }
+
+.jiacrs-stage-label {
+    display: block;
+    margin-top: 10px;
+    color: var(--jiacrs-navy);
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+
+/* =========================================================
+   FAQ
+   ========================================================= */
+
+.jiacrs-faq-wrap { max-width: 780px; margin: 0 auto; }
+
+.jiacrs-faq-item {
+    border: 1px solid var(--jiacrs-border);
+    border-radius: 8px !important;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.jiacrs-faq-item .accordion-button { color: var(--jiacrs-navy); font-weight: 700; font-size: 15px; }
+.jiacrs-faq-item .accordion-button:not(.collapsed) { background: var(--jiacrs-soft); color: var(--jiacrs-navy); box-shadow: none; }
+.jiacrs-faq-item .accordion-body { color: var(--jiacrs-text); }
+
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
+.jiacrs-contact-list li { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+
+.jiacrs-contact-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--jiacrs-navy);
+    color: #fff;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.jiacrs-contact-list a, .jiacrs-contact-list span { color: var(--jiacrs-navy); font-weight: 700; font-size: 16px; text-decoration: none; }
+.jiacrs-contact-list a:hover { text-decoration: underline; }
+.jiacrs-contact-list small { display: block; color: var(--jiacrs-text); font-size: 13px; }
+
+.jiacrs-contact-photo {
+    position: relative;
+    min-height: 260px;
+    border-radius: 12px;
+    background-size: cover;
+    background-position: center 60%;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+.jiacrs-contact-photo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(0, 52, 91, .85) 0%, rgba(0, 52, 91, 0) 65%);
+}
+
+.jiacrs-contact-photo p {
+    position: relative;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 18px 20px;
+    margin: 0;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.jiacrs-footer { background: #0a2f57; color: rgba(255, 255, 255, .85); padding: 32px 0 18px; }
+.jiacrs-footer strong { color: #fff; }
+.jiacrs-footer small { color: rgba(255, 255, 255, .7); }
+.jiacrs-footer-logo { width: 48px; height: 48px; object-fit: contain; }
+
+.jiacrs-footer-links a { color: rgba(255, 255, 255, .85); text-decoration: none; font-size: 14px; margin-right: 10px; }
+.jiacrs-footer-links a:hover { color: #fff; text-decoration: underline; }
+
+.jiacrs-social {
+    display: inline-flex;
+    width: 36px;
+    height: 36px;
+    margin-left: 6px;
+    border-radius: 50%;
+    background: #fff;
+    color: #0a2f57;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.jiacrs-social:hover { background: #cfe6f8; }
+.jiacrs-footer-rule { border-color: rgba(255, 255, 255, .2); margin: 20px 0 14px; opacity: 1; }
+
+
+/* =========================================================
+   RESPONSIVE  (keep at the end)
+   ========================================================= */
+
+@media (max-width: 991.98px) {
+    .jiacrs-navbar .nav-link { padding: 10px 5px; }
+    .jiacrs-navbar .nav-link.active::after { display: none; }
+    .jiacrs-track-btn { display: inline-block; margin-bottom: 10px; }
+
+    .jiacrs-hero { min-height: 520px; }
+    .jiacrs-hero-overlay { background: linear-gradient(90deg, rgba(0,52,91,.94), rgba(0,52,91,.75)); }
+    .jiacrs-hero-title { font-size: 34px; }
+
+    /* lifecycle: 3 columns, no connector line */
+    .jiacrs-lifecycle { grid-template-columns: repeat(3, 1fr); row-gap: 26px; }
+    .jiacrs-stage::before { display: none !important; }
+}
+
+@media (max-width: 575.98px) {
+    .jiacrs-logo { width: 45px; height: 45px; margin-right: 8px; }
+    .jiacrs-university-name { font-size: 14px; }
+    .jiacrs-system-name { font-size: 10px; }
+
+    .jiacrs-hero { min-height: 580px; }
+    .jiacrs-hero-title { font-size: 30px; }
+    .jiacrs-hero-features { flex-direction: column; align-items: flex-start; }
+    .jiacrs-feature-divider { display: none; }
+    .jiacrs-hero-buttons { flex-direction: column; align-items: stretch; }
+
+    .jiacrs-section { padding: 48px 0; }
+    .jiacrs-category { padding: 10px; gap: 8px; }
+    .jiacrs-category-icon { width: 38px; height: 38px; font-size: 17px; }
+    .jiacrs-category-name { font-size: 13px; }
+}
+/* =========================================================
+   JIACRS AUTHENTICATION PAGES
+   ========================================================= */
+
+.jiacrs-auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+}
+
+
+/* =========================================================
+   AUTH CARD
+   ========================================================= */
+
+.jiacrs-auth-card {
+    width: 100%;
+    max-width: 460px;
+
+    background: #ffffff;
+
+    border-radius: 12px;
+
+    padding: 35px 38px;
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.20);
+}
+
+
+/* =========================================================
+   AUTH HEADER
+   ========================================================= */
+
+.jiacrs-auth-header {
+    text-align: center;
+
+    margin-bottom: 28px;
+}
+
+.jiacrs-auth-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    margin-bottom: 22px;
+}
+
+.jiacrs-auth-logo {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin: 0 0 10px 0;
+}
+
+.jiacrs-auth-university,
+.jiacrs-auth-system {
+    text-align: center;
+}
+
+.jiacrs-auth-system {
+    color: #42627c;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    line-height: 1.3;
+
+    max-width: 240px;
+
+    text-align: left;
+
+    margin-top: 3px;
+}
+
+.jiacrs-auth-header h1 {
+    color: #073f70;
+
+    font-size: 27px;
+
+    font-weight: 800;
+
+    margin: 0 0 7px;
+}
+
+.jiacrs-auth-header p {
+    color: #6b7f91;
+
+    font-size: 12px;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.jiacrs-auth-form {
+    width: 100%;
+}
+
+.jiacrs-form-group {
+    margin-bottom: 19px;
+}
+
+.jiacrs-form-label {
+    display: block;
+
+    color: #16496f;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    margin-bottom: 7px;
+}
+
+.jiacrs-form-input {
+    width: 100%;
+
+    height: 44px;
+
+    border: 1px solid #d6e0e8;
+
+    border-radius: 7px;
+
+    padding: 0 13px;
+
+    background: #ffffff;
+
+    color: #263b4d;
+
+    font-size: 13px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.jiacrs-form-input::placeholder {
+    color: #9aa9b5;
+}
+
+.jiacrs-form-input:focus {
+    border-color: #0b79a8;
+
+    box-shadow:
+        0 0 0 3px rgba(11, 121, 168, 0.10);
+}
+
+
+/* =========================================================
+   VALIDATION ERROR
+   ========================================================= */
+
+.jiacrs-form-error {
+    display: block;
+
+    color: #dc3545;
+
+    font-size: 11px;
+
+    margin-top: 5px;
+}
+
+
+/* =========================================================
+   LOGIN OPTIONS
+   ========================================================= */
+
+.jiacrs-login-options {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin: 3px 0 22px;
+}
+
+.jiacrs-remember {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: #65798a;
+
+    font-size: 11px;
+
+    margin: 0;
+
+    cursor: pointer;
+}
+
+.jiacrs-remember input {
+    width: 14px;
+    height: 14px;
+
+    accent-color: #075486;
+
+    cursor: pointer;
+}
+
+.jiacrs-forgot-link {
+    color: #075486;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+.jiacrs-forgot-link:hover {
+    color: #0da991;
+
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   LOGIN BUTTON
+   ========================================================= */
+
+.jiacrs-login-submit {
+    width: 100%;
+
+    height: 44px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #075486;
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.jiacrs-login-submit:hover {
+    background: #063f65;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   REGISTER LINK
+   ========================================================= */
+
+.jiacrs-auth-register {
+    text-align: center;
+
+    margin-top: 20px;
+
+    font-size: 11px;
+
+    color: #718393;
+}
+
+.jiacrs-auth-register a {
+    color: #075486;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    margin-left: 4px;
+}
+
+.jiacrs-auth-register a:hover {
+    color: #0da991;
+
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   ANONYMOUS REPORT INFO
+   ========================================================= */
+
+.jiacrs-anonymous-info {
+    display: flex;
+
+    gap: 11px;
+
+    margin-top: 25px;
+
+    padding: 14px;
+
+    border-radius: 8px;
+
+    background: #f0f8f7;
+
+    border: 1px solid #d4eee9;
+}
+
+.jiacrs-anonymous-icon {
+    font-size: 19px;
+
+    line-height: 1;
+}
+
+.jiacrs-anonymous-info strong {
+    display: block;
+
+    color: #16496f;
+
+    font-size: 11px;
+
+    margin-bottom: 3px;
+}
+
+.jiacrs-anonymous-info p {
+    color: #687d8d;
+
+    font-size: 10px;
+
+    line-height: 1.4;
+
+    margin: 0 0 4px;
+}
+
+.jiacrs-anonymous-info a {
+    color: #078d7b;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+.jiacrs-anonymous-info a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   BACK HOME
+   ========================================================= */
+
+.jiacrs-back-home {
+    text-align: center;
+
+    margin-top: 22px;
+}
+
+.jiacrs-back-home a {
+    color: #718393;
+
+    font-size: 10px;
+
+    text-decoration: none;
+}
+
+.jiacrs-back-home a:hover {
+    color: #075486;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+    .jiacrs-auth-page {
+        padding: 25px 15px;
+    }
+
+    .jiacrs-auth-card {
+        padding: 28px 22px;
+
+        border-radius: 10px;
+    }
+
+    .jiacrs-auth-logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .jiacrs-auth-university {
+        font-size: 15px;
+    }
+
+    .jiacrs-auth-system {
+        font-size: 8px;
+    }
+
+    .jiacrs-auth-header h1 {
+        font-size: 24px;
+    }
+
+    .jiacrs-login-options {
+        align-items: flex-start;
+
+        gap: 10px;
+    }
+
+}
+
+/* =========================================================
+   REGISTRATION PAGE
+   ========================================================= */
+
+.jiacrs-form-input option {
+    color: #263b4d;
+    background: #ffffff;
+}
+
+.jiacrs-terms {
+    margin: 2px 0 20px;
+}
+
+.jiacrs-terms label {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+
+    color: #687d8d;
+    font-size: 10px;
+    line-height: 1.5;
+
+    cursor: pointer;
+}
+
+.jiacrs-terms input {
+    width: 14px;
+    height: 14px;
+
+    flex-shrink: 0;
+
+    margin-top: 1px;
+
+    accent-color: #075486;
+
+    cursor: pointer;
+}
+.jiacrs-verification-message {
+    color: #687d8d;
+    font-size: 12px;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.jiacrs-verification-success {
+    color: #078d7b;
+    background: #f0f8f7;
+    border: 1px solid #d4eee9;
+    border-radius: 7px;
+    padding: 12px;
+    font-size: 11px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.jiacrs-verification-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.jiacrs-logout-button {
+    width: 100%;
+    height: 42px;
+    border: 1px solid #d6e0e8;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #65798a;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.jiacrs-logout-button:hover {
+    color: #075486;
+    border-color: #075486;
+}
+/* =========================================================
+   JIACRS PROFILE
+   ========================================================= */
+
+.jiacrs-profile-page {
+    min-height: 100vh;
+    background: #f5f7fa;
+    padding: 30px;
+}
+
+.jiacrs-profile-header {
+    margin-bottom: 25px;
+}
+
+.jiacrs-profile-header h1 {
+    color: #073f70;
+    font-size: 28px;
+    font-weight: 800;
+    margin: 0 0 5px;
+}
+
+.jiacrs-profile-header p {
+    color: #718393;
+    font-size: 13px;
+    margin: 0;
+}
+
+.jiacrs-profile-card {
+    background: #ffffff;
+    border: 1px solid #e3e9ee;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 20px;
+}
+
+.jiacrs-profile-card h2 {
+    color: #16496f;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.jiacrs-profile-card p {
+    color: #718393;
+    font-size: 12px;
+}
+
+.jiacrs-profile-summary {
+    background: #ffffff;
+    border: 1px solid #e3e9ee;
+    border-radius: 10px;
+    padding: 30px 20px;
+    text-align: center;
+    position: sticky;
+    top: 20px;
+}
+
+.jiacrs-profile-avatar {
+    width: 85px;
+    height: 85px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background: #075486;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: 800;
+}
+
+.jiacrs-profile-summary h3 {
+    color: #073f70;
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.jiacrs-profile-summary p {
+    color: #718393;
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+
+.jiacrs-profile-role {
+    display: inline-block;
+    background: #e8f7f4;
+    color: #078d7b;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.jiacrs-profile-divider {
+    height: 1px;
+    background: #e5ebef;
+    margin: 22px 0;
+}
+
+.jiacrs-profile-dashboard-btn {
+    display: block;
+    color: #075486;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.jiacrs-profile-dashboard-btn:hover {
+    color: #0da991;
+}
+
+.jiacrs-danger-card {
+    border-color: #f0dada;
+}
+
+@media (max-width: 991.98px) {
+    .jiacrs-profile-page {
+        padding: 20px;
+    }
+
+    .jiacrs-profile-summary {
+        position: static;
+        margin-bottom: 20px;
+    }
+}
+/* =========================================================
+   JIACRS PROFILE FORMS
+   ========================================================= */
+
+.jiacrs-profile-section-header {
+    margin-bottom: 22px;
+}
+
+.jiacrs-profile-section-header h2 {
+    color: #16496f;
+    font-size: 18px;
+    font-weight: 800;
+    margin: 0 0 6px;
+}
+
+.jiacrs-profile-section-header p {
+    color: #718393;
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.jiacrs-profile-form-group {
+    margin-bottom: 20px;
+}
+
+.jiacrs-profile-label {
+    display: block;
+    color: #16496f;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+
+.jiacrs-profile-input {
+    width: 100%;
+    height: 44px;
+    border: 1px solid #d6e0e8;
+    border-radius: 7px;
+    padding: 0 13px;
+    background: #ffffff;
+    color: #263b4d;
+    font-size: 13px;
+    outline: none;
+}
+
+.jiacrs-profile-input:focus {
+    border-color: #0b79a8;
+    box-shadow: 0 0 0 3px rgba(11, 121, 168, 0.10);
+}
+
+.jiacrs-profile-error {
+    display: block;
+    color: #dc3545;
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+.jiacrs-profile-form-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 22px;
+}
+
+.jiacrs-profile-save-btn {
+    border: none;
+    border-radius: 7px;
+    background: #075486;
+    color: #ffffff;
+    padding: 10px 22px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.jiacrs-profile-save-btn:hover {
+    background: #063f65;
+}
+
+.jiacrs-profile-saved {
+    color: #078d7b;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.jiacrs-email-warning {
+    margin-top: 10px;
+    padding: 12px;
+    background: #fff8e8;
+    border: 1px solid #f3dfad;
+    border-radius: 7px;
+}
+
+.jiacrs-email-warning p {
+    color: #856404;
+    font-size: 11px;
+    margin: 0 0 5px;
+}
+
+.jiacrs-link-button {
+    border: none;
+    padding: 0;
+    background: transparent;
+    color: #075486;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.jiacrs-link-button:hover {
+    text-decoration: underline;
+}
+
+.jiacrs-verification-success {
+    color: #078d7b !important;
+    margin-top: 8px !important;
+}
+
+.jiacrs-danger-title {
+    color: #b02a37 !important;
+}
+
+.jiacrs-delete-btn {
+    border: 1px solid #dc3545;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #dc3545;
+    padding: 9px 18px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.jiacrs-delete-btn:hover {
+    background: #dc3545;
+    color: #ffffff;
+}
+
+.jiacrs-modal-description {
+    color: #687d8d;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.jiacrs-cancel-btn {
+    border: 1px solid #d6e0e8;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #65798a;
+    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.jiacrs-delete-confirm-btn {
+    border: 1px solid #dc3545;
+    border-radius: 6px;
+    background: #dc3545;
+    color: #ffffff;
+    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.jiacrs-delete-confirm-btn:hover {
+    background: #b02a37;
+}
